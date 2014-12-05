@@ -4,12 +4,13 @@
  * Initialize your client DNS library with the IP address and port number of
  * your DNS server.
  *
- * @param  dns_ip  The IP address of the DNS server.
+ * @param  dns_ip    The IP address of the DNS server.
  * @param  dns_port  The port number of the DNS server.
+ * @param  local_ip  The local IP address client sockets should bind to.
  *
  * @return 0 on success, -1 otherwise
  */
-int init_mydns(const char *dns_ip, unsigned int dns_port);
+int init_mydns(const char *dns_ip, unsigned int dns_port, const char *local_ip);
 
 
 /**
