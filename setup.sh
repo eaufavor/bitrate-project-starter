@@ -20,12 +20,12 @@ CLICK_DOWNLOAD="http://www.read.cs.ucla.edu/click/click-2.0.1.tar.gz"
 CLICK_TARBALL="click-2.0.1.tar.gz"
 CLICK_SRC_DIR="click-2.0.1"
 
-AFS_DIR="/afs/andrew.cmu.edu/usr/trigoudy/15441-p3"
-
-WWW_TARBALL="www.tar.gz"
+WWW_DOWNLOAD="https://cmu.box.com/shared/static/ugptofzzueprqdv9g4xbx1dyqmnjap4b.gz"
+WWW_TARBALL="ugptofzzueprqdv9g4xbx1dyqmnjap4b.gz"
 WWW_SRC_DIR="www"
 
-F4F_TARBALL="adobe_f4f_apache_module_4_5_1_linux_x64.tar.gz"
+F4F_DOWNLOAD="https://cmu.box.com/shared/static/zgxgc4klw2kbeumlnu1gvuk7x5eesc47.gz"
+F4F_TARBALL="zgxgc4klw2kbeumlnu1gvuk7x5eesc47.gz"
 F4F_SRC_DIR="adobe_f4f_apache_module_4_5_1_linux_x64"
 
 F4F_CONF="LoadModule f4fhttp_module modules/mod_f4fhttp.so\n
@@ -135,7 +135,7 @@ echo
 
 # Install Adobe f4f origin module for apache
 echo "Installing Adobe f4f origin module for apache..."
-scp_tarball $F4F_TARBALL
+wget $F4F_TARBALL
 extract_tarball $F4F_TARBALL $F4F_SRC_DIR
 cp ./$F4F_SRC_DIR/* /$APACHE_MODULES_DIR
 if ! grep -q "f4f" $APACHE_CONF_DIR/httpd.conf
@@ -146,7 +146,7 @@ echo
 
 # Copy www files to /var/www
 echo "Installing www files..."
-scp_tarball $WWW_TARBALL
+wget $WWW_TARBALL
 extract_tarball $WWW_TARBALL $WWW_SRC_DIR
 rm -rf /var/www
 mv $WWW_SRC_DIR /var/www
